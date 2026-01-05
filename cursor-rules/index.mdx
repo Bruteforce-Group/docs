@@ -1,0 +1,31 @@
+---
+title: "Cursor Rules"
+description: "Shared Cursor rule set and Mintlify docs linking for Bruteforce projects."
+---
+
+# Cursor Rules
+
+Central guidance and CI checks for Cursor rules across Bruteforce projects.
+
+## What it provides
+
+- `.cursor/rules/` per-domain rules (backend, frontend, infra, data, ML, mobile, etc.).
+- Mintlify docs path/conventions for multi-project docs (`docs/` with project folders).
+- CI link check workflow; deploys handled by the Mintlify app on pushes to `main`.
+
+## Where the rules live
+
+- Repo: `Bruteforce-Group/cursor-rules`
+- Docs for rules: included in this site; add more pages under `cursor-rules/` if needed.
+
+## How to add a new project section
+
+1) Create a folder under `docs/` (in this repo) per project, e.g., `docs/sitea/`.
+2) Add an `index.mdx` (and subpages) with frontmatter (`title`, `description`).
+3) Update `docs/docs.json` to include the new paths (e.g., `sitea/index`).
+4) Push to `main`; the Mintlify app will publish to `https://docs.bozza.au/sitea/`.
+
+## CI expectations
+
+- Link check: `MINTLIFY_CI=1 npx mintlify broken-links` from `docs/` on `main`.
+- Keep nav and files in sync to avoid broken-link failures.
